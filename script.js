@@ -1,4 +1,3 @@
-setTimeout(setPrompt,1000);
 let passwordLength = parseInt(
     prompt("Please choose a password length between 8 and 128")
   );
