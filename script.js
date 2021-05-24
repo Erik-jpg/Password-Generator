@@ -1,4 +1,4 @@
-generateBtn.addEventListener("click", writePassword);
+
 
 let passwordLength = parseInt(
     prompt("Please choose a password length between 8 and 128")
@@ -67,4 +67,4 @@ let passwordLength = parseInt(
     passwordText.value = password;
   
   }
-  
+  generateBtn.addEventListener("click", writePassword);
