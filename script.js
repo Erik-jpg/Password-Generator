@@ -1,5 +1,5 @@
-
-
+let generateBtn = document.querySelector("#generate");
+let generatePassword = () => {
 let passwordLength = parseInt(
     prompt("Please choose a password length between 8 and 128")
   );
@@ -15,17 +15,17 @@ let passwordLength = parseInt(
   while (!specialCharacters && !capitalizedCharacters && !lowercaseCharacters && !numericCharacters) {
     alert("You need to chose at least one.");
     specialCharacters = confirm("Would you like special characters(!@#$)?");
-    capitalizedCharacters = confirm("Would you like uppercase  characters(ABCD)?");
+    capitalizedCharacters = confirm("Would you like capitalized characters(ABCD)?");
     lowercaseCharacters = confirm("Would you like lowercase characters(abcd)?");
     numericCharacters = confirm("Would you like to include numbers(1234)?");
   }
-  const upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  const capitalizedArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   const lowerCaseArray = ['a', 'b', 'c', 'd', 'e','f', 'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z'];
   const specialArray = ['!', '@', '#', '$', '%','^','&','*','(',')','-','_','=','+','[',']','{','}',';',':','"',',','<','.','>','?','/'];
   const numbersArray = ['1', '2', '3', '4', '5','6','7','8','9','0'];
-  let generatePassword = (maxNum) => {
+  
     let array = [];
-    for (let index = 0; index < maxNum; index++) {
+    for (let index = 0; index < passwordLength; index++) {
       let rand = Math.floor(Math.random() * 4);
       while (
         (!capitalizedCharacters && rand === 0) ||
@@ -36,8 +36,8 @@ let passwordLength = parseInt(
           rand = Math.floor(Math.random() * 4); 
       }
       if (capitalizedCharacters && rand === 0) {
-          let upperCaseRand = Math.floor(Math.random() * upperCaseArray.length);
-          array.push(upperCaseArray[upperCaseRand]);
+          let capitalizedRand = Math.floor(Math.random() * capitalizedArray.length);
+          array.push(capitalizedArray[capitalizedRand]);
         }
       if (lowercaseCharacters && rand === 1) {
         let lowerCaseRand = Math.floor(Math.random() * lowerCaseArray.length);
@@ -56,11 +56,11 @@ let passwordLength = parseInt(
   };
   
   // Assignment Code
-  let generateBtn = document.querySelector("#generate");
+  
   
   // Write password to the #password input
   function writePassword() {
-    let password = generatePassword(passwordLength).join("");
+    let password = generatePassword().join("");
     let passwordText = document.querySelector("#password");
   
     passwordText.value = password;
