@@ -62,3 +62,4 @@ let passwordLength = parseInt(
   
   }
   generateButton.addEventListener("click", writePassword);
+  console.log("/favicon.ico:1 Failed to load resource: the server responded ");
